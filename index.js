@@ -1,6 +1,7 @@
-
+'use strict';
 const seneca = require('seneca')();
-const module = require('./lib/module');
+const myModule = require('./lib/module');
+const database = require('./lib/database');
 
 require('dotenv').config({path: '../.env'});
 
@@ -8,9 +9,12 @@ require('dotenv').config({path: '../.env'});
 const transportMethod = process.env['SENECA_TRANSPORT_METHOD'] || 'rabbitmq';
 const patternPin = 'role:user';
 
-// init seneca and expose functions
-seneca
-    .use(transportMethod + '-transport')
-    .add(patternPin + ',cmd:login', module.doSomething)
-    .add(patternPin + ',cmd:else', module.doSomethingElse)
-    .listen({type: transportMethod, pin: patternPin});
+// init database and then seneca and expose functions
+database.connect()
+    .then(() => {
+        seneca
+            .use(transportMethod + '-transport')
+            .add(patternPin + ',cmd:login', myModule.doSomething)
+            .add(patternPin + ',cmd:else', myModule.doSomethingElse)
+            .listen({type: transportMethod, pin: patternPin});
+    });
