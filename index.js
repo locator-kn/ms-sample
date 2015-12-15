@@ -1,9 +1,10 @@
 'use strict';
+require('dotenv').config({path: '../.env'});
+
 const seneca = require('seneca')();
 const myModule = require('./lib/module');
 const database = require('./lib/database');
 
-require('dotenv').config({path: '../.env'});
 
 // select desired transport method
 const transportMethod = process.env['SENECA_TRANSPORT_METHOD'] || 'rabbitmq';
