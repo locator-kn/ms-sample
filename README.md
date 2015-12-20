@@ -1,6 +1,6 @@
 # ms-sample
 
-![Dependencies][david-badge]
+[![Dependencies][david-badge]][david-url]
 
 This repository contains some sample code for a single microservice.
 
@@ -20,3 +20,4 @@ The documentation can be found on the branch `gh-pages`. To update/generate the 
 
 
 [david-badge]: https://david-dm.org/locator-kn/ms-sample.svg
+[david-url]: https://david-dm.org/locator-kn/ms-sample
