@@ -1,6 +1,6 @@
-# ms-sample
+# ms-fileserve
 
-This repository contains some sample code for a single microservice.
+This repository is used to serve files out of a mongodb.
 
 It uses `seneca.js` and `rabbitmq`.
 
