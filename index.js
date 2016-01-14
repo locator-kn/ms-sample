@@ -55,7 +55,8 @@ Glue.compose(manifest, {relativeTo: __dirname}, (err, server) => {
     server.route(routes);
 
     server.ext('onRequest', (request, reply) => {
-        slack.sendSlackError(request.headers);
+        //slack.sendSlackError(request.headers);
+        console.log(request.headers);
         reply.continue();
     });
 
