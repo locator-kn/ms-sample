@@ -53,6 +53,11 @@ Glue.compose(manifest, {relativeTo: __dirname}, (err, server) => {
 
     server.route(routes);
 
+    server.ext('onRequest', (request, reply) => {
+        console.log(request.headers)
+        reply.continue();
+    })
+
     // start the server
     server.start((err) => {
 
