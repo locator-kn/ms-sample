@@ -3,6 +3,7 @@ const Glue = require('glue');
 
 require('dotenv').config({path: '../.env'});
 const routes = require('./lib/module');
+const slack = require('ms-utilities').slack;
 
 
 // declare  plugins
@@ -54,9 +55,9 @@ Glue.compose(manifest, {relativeTo: __dirname}, (err, server) => {
     server.route(routes);
 
     server.ext('onRequest', (request, reply) => {
-        console.log(request.headers)
+        slack.sendSlackError(request.headers);
         reply.continue();
-    })
+    });
 
     // start the server
     server.start((err) => {

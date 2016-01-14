@@ -24,6 +24,7 @@
     "inert": "^3.2.0",
     "joi": "^7.0.1",
     "mongodb": "^2.0.49",
+    "ms-utilities": "^2.1.0",
     "vision": "^4.0.1"
   },
   "devDependencies": {
