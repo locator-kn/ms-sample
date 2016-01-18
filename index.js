@@ -1,7 +1,10 @@
 'use strict';
 const Glue = require('glue');
 
-require('dotenv').config({path: '../.env'});
+const path = require('path');
+const pwd = path.join(__dirname, '..', '/.env');
+require('dotenv').config({path: pwd});
+
 const routes = require('./lib/module');
 const slack = require('ms-utilities').slack;
 
