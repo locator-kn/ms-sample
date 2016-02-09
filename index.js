@@ -22,5 +22,5 @@ database.connect()
             .add(patternPin + ',cmd:do', myModule.do)
             .add(patternPin + ',cmd:do,entity:something', myModule.doSomething)
             .add(patternPin + ',cmd:do,entity:else', myModule.doSomethingElse)
-            .listen({type: 'tcp', port: 7001, pin: patternPin});
+            .listen({type: 'tcp', port: 7001, pin: patternPin}); // TODO: change PORT
     });
